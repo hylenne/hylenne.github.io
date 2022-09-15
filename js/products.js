@@ -45,7 +45,7 @@ function showProductsList(){ //Offline: productsArray has things! yay :D
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
-        debugger
+        
       if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
           ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
