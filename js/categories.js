@@ -65,6 +65,7 @@ function showCategoriesList(){
                 </div>
             </div>
             `
+            console.log(localStorage.getItem("catID"))
         }
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;

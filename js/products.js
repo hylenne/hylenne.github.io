@@ -2,8 +2,6 @@ const ORDER_ASC_BY_PRICE = "Precio ↑";
 const ORDER_DESC_BY_PRICE = "Precio ↓";
 const ORDER_BY_SOLD_COUNT = "Relevancia";
 let catID = localStorage.getItem("catID")
-//let CATEGORY_JSON = "https://japceibal.github.io/emercado-api/cats_products/" + catID + EXT_TYPE;
-//(done inside getJSON)
 let currentProductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
@@ -11,8 +9,7 @@ let maxCount = undefined;
 
 function sortProducts(criteria, array){
     let result = [];
-    if (criteria === ORDER_ASC_BY_PRICE)
-    {
+    if (criteria === ORDER_ASC_BY_PRICE){
         result = array.sort(function(a, b) {
             if ( a.cost < b.cost ){ return -1; }
             if ( a.cost > b.cost ){ return 1; }
@@ -38,9 +35,7 @@ function sortProducts(criteria, array){
     return result;
 }
 
-//function setCatID(id) {    localStorage.setItem("catID", id);    window.location = "products.html"}
-
-function showProductsList(){ //Offline: productsArray has things! yay :D
+function showProductsList(){
     
     let htmlContentToAppend = "";
     for(let i = 0; i < currentProductsArray.length; i++){
@@ -50,7 +45,7 @@ function showProductsList(){ //Offline: productsArray has things! yay :D
           ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <div onclick="setCatID(${product.id})" class="list-group-item list-group-item-action cursor-active">
+            <div onclick="setProdID(${product.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -78,16 +73,10 @@ function sortAndShowProducts(sortCriteria, productsArray){
     if(productsArray != undefined){
         currentProductsArray = productsArray;
     }
-
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
-
-    //Muestro las categorías ordenadas
     showProductsList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     
         getJSONData("https://japceibal.github.io/emercado-api/cats_products/" + catID + EXT_TYPE).then(function(resultObj){
@@ -96,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             showProductsList()
             console.log(currentProductsArray)
             sortAndShowProducts(ORDER_DESC_BY_PRICE, currentProductsArray);
-            //Mostrar el orden descendiente por defecto es una decisión personal.
         }
     });
 
