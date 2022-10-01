@@ -40,4 +40,8 @@ let getJSONData = function(url){
     });
 }
 
-document.getElementsByClassName("nav-item")[3].innerHTML = `<a class="nav-link" href="my-profile.html">`+localStorage.uemail+`<\a>`
+if(localStorage.getItem("uemail") == null) {
+  location = "login.html"
+} else {
+  document.getElementsByClassName("nav-item")[3].innerHTML = `<a class="nav-link" href="my-profile.html">`+localStorage.uemail+`<\a>`
+}
