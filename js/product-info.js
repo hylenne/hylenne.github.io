@@ -19,7 +19,7 @@ function showComments(){
     for(let i = 0; i < comms.length; i++){
         comment = comms[i]
         let stars = ""
-        console.log(stars)
+        
         for (let h = 0; h < 5; h++) {
             if(h<comment.score){
                 stars += `<span class="fa fa-star checked"></span>`
@@ -27,7 +27,7 @@ function showComments(){
                 stars += `<span class="fa fa-star"></span>`
             }
         }
-        console.log(stars)
+        //console.log(stars)
 
     htmlContentToAppend += `
             <div class="list-group-item list-group-item-action">
