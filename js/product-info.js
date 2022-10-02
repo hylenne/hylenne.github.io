@@ -1,5 +1,5 @@
 const CurrPrID /*current product URL*/ = PRODUCT_INFO_URL + localStorage.getItem("prodID") + EXT_TYPE 
-const ProdComm = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + EXT_TYPE
+const ProdComm /*product comments*/ = PRODUCT_INFO_COMMENTS_URL + localStorage.getItem("prodID") + EXT_TYPE
 
 function showProductInfo(){
     document.getElementById("prname").innerHTML = `<h2>${info.name}</h2>`
@@ -34,7 +34,7 @@ function showComments(){
               <div class="row">
                   <div class="col">
                       <div class="d-flex w-100 justify-content-between">
-                          <h4 class="mb-1">${comment.user} - ${stars}</h4>
+                          <h4 class="mb-1">${stars} ${comment.user}</h4>
                           <small class="text-muted" id="ratingP">${comment.dateTime}</small>
                       </div>
                       <p class="mb-1">${comment.description}</p>
@@ -59,10 +59,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             console.log(info)
         }
     })
+    //debugger
     getJSONData(ProdComm).then(function(resultObj){
         if (resultObj.status === "ok"){
             comms = resultObj.data
-            showComments()
+            if (comms.length != 0) {showComments()}
+            //debugger
             console.log(comms)
         }
     })
