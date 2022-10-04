@@ -9,9 +9,7 @@ function showProductInfo(){
     document.getElementById("countP").innerHTML = `${info.soldCount}`
     for (let i = 0; i < info.images.length; i++) {
         document.getElementById("imgP").innerHTML += `<img style="max-width: 200px" src="${info.images[i]}">`
-    }
-
-}
+    }}
 
 function showComments(){
     
@@ -46,12 +44,7 @@ function showComments(){
         document.getElementById("comment-container").innerHTML = htmlContentToAppend;
 }
 
-
-
-// --------------------------- Programs start ---------------------------
-
-document.addEventListener("DOMContentLoaded", function(e){
-    
+function fetchAndShow(){
     getJSONData(CurrPrID).then(function(resultObj){
         if (resultObj.status === "ok"){
             info = resultObj.data
@@ -67,5 +60,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             //debugger
             console.log(comms)
         }
-    })
+    })}
+
+
+
+// --------------------------- Programs start ---------------------------
+
+document.addEventListener("DOMContentLoaded", function(e){
+    fetchAndShow()    
 })
+// Explicar esto
