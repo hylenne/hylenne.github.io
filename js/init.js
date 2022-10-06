@@ -40,8 +40,24 @@ let getJSONData = function(url){
     });
 }
 
+function logOut() {
+  localStorage.removeItem("uemail")
+  localStorage.removeItem("upass")
+  window.location = "login.html"
+}
 if(localStorage.getItem("uemail") == null) {
   location = "login.html"
 } else {
-  //document.getElementsByClassName("nav-item")[3].innerHTML = `<a class="nav-link" href="my-profile.html">`+localStorage.uemail+`<\a>`
-}
+  document.getElementsByClassName("nav-item")[3].innerHTML = `
+      <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="userDrop" data-bs-toggle="dropdown" aria-expanded="false">
+              ${localStorage.uemail}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="#" onclick="logOut()">Cerrar sesión</a></li>
+            </ul>
+          </div>
+    `
+  }
