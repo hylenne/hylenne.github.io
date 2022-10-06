@@ -43,5 +43,5 @@ let getJSONData = function(url){
 if(localStorage.getItem("uemail") == null) {
   location = "login.html"
 } else {
-  document.getElementsByClassName("nav-item")[3].innerHTML = `<a class="nav-link" href="my-profile.html">`+localStorage.uemail+`<\a>`
+  //document.getElementsByClassName("nav-item")[3].innerHTML = `<a class="nav-link" href="my-profile.html">`+localStorage.uemail+`<\a>`
 }
