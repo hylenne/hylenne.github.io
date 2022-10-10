@@ -35,11 +35,6 @@ function sortProducts(criteria, array){
     return result;
 }
 
-function setProdID(id){
-    localStorage.setItem ("prodID", id)
-    window.location = "product-info.html"
-}
-
 function showProductsList(){
     
     let htmlContentToAppend = "";
@@ -70,6 +65,7 @@ function showProductsList(){
         
         document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
+    
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){

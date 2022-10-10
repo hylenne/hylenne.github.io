@@ -9,7 +9,26 @@ function showProductInfo(){
     document.getElementById("countP").innerHTML = `${info.soldCount}`
     for (let i = 0; i < info.images.length; i++) {
         document.getElementById("imgP").innerHTML += `<img style="max-width: 200px" src="${info.images[i]}">`
-    }}
+    }
+    htmlContentToAppend = ""
+    currentRelated = []
+    for(let i = 0; i < info.relatedProducts.length; i++){
+        currentRelated = info.relatedProducts[i]
+        htmlContentToAppend += `
+        <div onclick="setProdID(${currentRelated.id})" class="list-group-item list-group-item-action cursor-active">
+              <div class="row">
+                  <div class="col-3">
+                      <img src="${currentRelated.image}" class="img-thumbnail">
+                  </div>
+                  <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">${currentRelated.name} 
+                        </div>
+                    </div>
+              </div>
+        </div>`}
+    document.getElementById("related-container").innerHTML = htmlContentToAppend
+}
 
 function showComments(){
     

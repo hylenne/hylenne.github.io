@@ -40,10 +40,12 @@
     <div class="container">
       <div class="text-center p-4" id="prname">No hay un producto cargado.</div>
       <hr></hr>
+
+
+      
       <div class="container">
         <p id="desc">Vaya a <a href="categories.html">categorías</a> para encontrar el producto que busca!</p>
         <p><b>Precio</b><br><span id="priceP" style="font-size: 200%"></span></p>
-        <!-- En este caso no hice un .css para el aumento de tamaño porque es el único elemento de la página que recibirá ese tratamiento -->
         <p><b>Categoría</b><br><span id="catP"></span></p>
         <p><b>Cantidad de vendidos</b><br><span id="countP"></span></p>
         <p><b>Imágenes</b>
@@ -62,19 +64,24 @@
                   </div>
               </div>
             </div>
-          </div>
-          <div></p>
-            <p><b>Añadir comentario</b>
+          </div></p>
+          <div id="addComm">
+            <p><b>Añadir comentario</b></p>
             <div>Tu puntuación: <select id="ratingSelect">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-            </select></p>
+            </select>
             <textarea placeholder="Escriba su reseña" id="reviewText"></textarea><br>
             <button id="sendReview">Enviar</button></div>
           </div>
+          <p><b>Productos relacionados</b></p>
+          <div class="list-group" id="related-container">
+            
+            </div>
+          
         </div>
       </div>
   </main>

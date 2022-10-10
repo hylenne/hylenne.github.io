@@ -45,6 +45,12 @@ function logOut() {
   localStorage.removeItem("upass")
   window.location = "login.html"
 }
+
+function setProdID(id){
+  localStorage.setItem ("prodID", id)
+  window.location = "product-info.html"
+}
+
 if(localStorage.getItem("uemail") == null) {
   location = "login.html"
 } else {
