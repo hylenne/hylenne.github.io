@@ -18,7 +18,7 @@ function showProductInfo(){
         <div onclick="setProdID(${currentRelated.id})" class="list-group-item list-group-item-action cursor-active">
               <div class="row">
                   <div class="col-3">
-                      <img src="${currentRelated.image}" class="img-thumbnail">
+                      <img src="${currentRelated.image}" class="img-thumbnail" style="max-width: 150px">
                   </div>
                   <div class="col">
                         <div class="d-flex w-100 justify-content-between">
