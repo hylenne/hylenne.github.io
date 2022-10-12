@@ -26,7 +26,8 @@ function showProductInfo(){
                         </div>
                     </div>
               </div>
-        </div>`}
+        </div>`
+        }
     document.getElementById("related-container").innerHTML = htmlContentToAppend
 }
 
