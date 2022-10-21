@@ -188,3 +188,13 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.smallimg {
+  max-width: 150px;
+}
+
+#cart td,th{
+  padding: 20px 0px;
+  width: 200px;
+  text-align: center;
+}
