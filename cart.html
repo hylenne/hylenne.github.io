@@ -43,50 +43,47 @@
         <thead><td></td><th>Producto</th><th>Costo</td><th>Cantidad</th><th>Subtotal</th></thead>
         
       </table>
-      <div class="list-group" id="prices-container">
-        <div class="list-group-item list-group-item-action" style="width: 500px; align-self: center">
-          <!--Buscar o preguntar a Nico sobre estilo centrado-->
-          <div class="row">
-            <div class="d-flex justify-content-between">
-              <h4>Subtotal</h4>
-              <h4 id="subtotalAllCont">Un riñón</h4>
-            </div>
-            <div class="row"><small class="text-muted">Suma total de los precios de sus artículos deseados</small></div>
-          </div>
-        </div>
-
-        <div class="list-group-item list-group-item-action" style="width: 500px; align-self: center">
-          <div class="row">
-            <div class="d-flex justify-content-between">
-              <h4>Costo de envío</h4>
-              <h4 id="shipCostCont">Un dedo</h4>
-            </div>
-            <div class="row"><small class="text-muted">Según tipo de envío</small></div>
-          </div>
-        </div>
-        <div class="list-group-item list-group-item-action" style="width: 500px; align-self: center">
-          <div class="row">
-            <div class="d-flex justify-content-between">
-              <h4>Precio total</h4>
-              <h4 id="finalPriceCont">Un riñón y un dedo</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
       </div>
     </div>
     
     <div class="container"><h4>Tipo de envío</h4>
-      <input type="radio" name="sendOption" checked> Premium: 2 a 5 días (15%)</input><br>
-      <input type="radio" name="sendOption"> Express: 5 a 8 días (7%)</input><br>
-      <input type="radio" name="sendOption"> Estándar: 12 a 15 días (5%)</input><br>
+      <input type="radio" name="shipOption" onclick="updatePrices()" value="Premium" checked> Premium: 2 a 5 días (15%)</input><br>
+      <input type="radio" name="shipOption" onclick="updatePrices()" value="Express"> Express: 5 a 8 días (7%)</input><br>
+      <input type="radio" name="shipOption" onclick="updatePrices()" value="Estándar"> Estándar: 12 a 15 días (5%)</input><br>
 
     <h4>Dirección de envío</h4>
       <p>Calle <input type="text"></p>
       <p>Número <input type="text"></p>
       <p>Esquina <input type="text"></p>
+    </div>
+    <div class="list-group d-flex d-flex-column align-items-center" id="prices-container">
+      <div class="list-group-item list-group-item-action" style="width: 500px">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h4>Subtotal</h4>
+            <h4 id="subtotalAllCont">Un riñón</h4>
+          </div>
+          <div class="row"><small class="text-muted">Suma total de los precios de sus artículos deseados</small></div>
+        </div>
+      </div>
+
+      <div class="list-group-item list-group-item-action" style="width: 500px">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h4>Costo de envío</h4>
+            <h4 id="shipCostCont">Un dedo</h4>
+          </div>
+          <div class="row"><small class="text-muted">Según tipo de envío</small></div>
+        </div>
+      </div>
+      <div class="list-group-item list-group-item-action" style="width: 500px">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h4>Precio total</h4>
+            <h4 id="finalPriceCont">Un riñón y un dedo</h4>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
   <footer class="text-muted">
