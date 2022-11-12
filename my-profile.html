@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
@@ -52,9 +53,42 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <input type="radio" name="payForm" onclick="fieldsCard()" value="creditCard"> Tarjeta de crédito</input><br>
+        Número de tarjeta <input type="text" inputmode="numeric" id="cardNumber"><br>
+        Código de seguridad <input type="text" inputmode="numeric" id="secCode"><br>
+        Vencimiento (año/mes) <input type="month" id="expiration" placeholder="AAAA/MM"><br>
+        <!--Aprovechando la funcionalidad de mes que tienen algunos navegadores-->
+        <hr>
+        <input type="radio" name="payForm" onclick="fieldsTransfer()" value="bankTransfer"> Transferencia bancaria</input><br>
+        Número de cuenta <input type="text" inputmode="numeric" id="account"><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
     </div>
   </main>
   <footer class="text-muted">
@@ -68,6 +102,7 @@
     </div>
   </footer>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
 </body>
