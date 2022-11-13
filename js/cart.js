@@ -8,10 +8,15 @@ let subtotalAll = 0
 let price = 0
 let shipCost = 0
 let finalPrice = 0
+let payValida = false
+let adressValid = false
 
+const modalInputs = document.getElementById("payMethodModal").getElementsByTagName("input")
+const adressInputs = document.getElementById("adressFields").getElementsByTagName("input")
 const table = document.getElementById("cart")
 const currentCartUrl = CART_INFO_URL + userID + ".json"
 
+// --------------------------------------------------------------------- Precios
 function addProduct(pr) {
     table.insertAdjacentHTML("beforeend", `<tr id=${pr.id}>
     <td><img src="${pr.image}" class="smallimg"></td>
@@ -55,11 +60,38 @@ function updatePrices(){
 }
 
 function showCart(){
-for (let i = 0; i < cartItems.length; i++) {
-    currentItem = cartItems[i]
-    addProduct(currentItem)
-}}
-        
+    for (let i = 0; i < cartItems.length; i++) {
+        currentItem = cartItems[i]
+        addProduct(currentItem)
+    }}
+
+//----------------------------------------------------------------------------- Campos de validación
+
+function disable(field){
+    field.setAttribute("disabled","")
+    field.value = ""
+}
+
+function fieldsCard(){
+    modalInputs[1].removeAttribute("disabled")
+    modalInputs[2].removeAttribute("disabled")
+    modalInputs[3].removeAttribute("disabled")
+    disable(modalInputs[5])
+}
+function fieldsTransfer(){
+    disable(modalInputs[1])
+    disable(modalInputs[2])
+    disable(modalInputs[3])
+    modalInputs[5].removeAttribute("disabled")
+    
+}
+
+function adressVal(field){
+    let input = adressInputs[field]
+    input.classList.add("invalid")
+}
+
+       
 function fetchAndShow(){
     getJSONData(currentCartUrl).then(function(resultObj){
         getJSONData(currentCartUrl).then(function(resultObj){

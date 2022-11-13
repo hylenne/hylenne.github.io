@@ -54,11 +54,11 @@
       <input type="radio" name="shipOption" onclick="updatePrices()" value="Express"> Express: 5 a 8 días (7%)</input><br>
       <input type="radio" name="shipOption" onclick="updatePrices()" value="Estándar"> Estándar: 12 a 15 días (5%)</input><br></div>
 
-      <div class="col-6">
+      <div class="col-6" id="adressFields">
       <h4>Dirección de envío</h4>
-      <p>Calle <input type="text"></p>
-      <p>Número <input type="text"></p>
-      <p>Esquina <input type="text"></p></div>
+      Calle <input type="text" oninput="adressVal(0)"><span class="adressFeedback"><span style="color:red" class="fa-solid fa-xmark"></span><br>
+      Número <input type="text" oninput="adressVal(1)"><span class="adressFeedback"></span><br>
+      Esquina <input type="text" oninput="adressVal(2)"><span class="adressFeedback"></span></div>
     </div></div>
     <div class="list-group d-flex d-flex-column align-items-center" id="prices-container">
       
@@ -91,15 +91,17 @@
         </div>
       </div>
     
-      <div class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#payMethodModal"  style="width: 500px">
+      <div class="list-group-item list-group-item-action" style="width: 500px">
         <div class="row">
-            <button class="btn btn-primary">Seleccionar método de pago</button>
+            <div class="col">
+              <button class="btn btn-block btn-primary" style="width:400px" data-bs-toggle="modal" data-bs-target="#payMethodModal">Seleccionar método de pago</button></div>
+            <div class="col-1"><span class="fa fa-check"></div>
         </div>
       </div>
 
-      <div class="list-group-item list-group-item-action"style="width: 500px">
+      <div class="list-group-item list-group-item-action" style="width: 500px">
         <div class="row">
-            <button class="btn btn-lg btn-secondary">Confirmar compra</button>
+            <button class="btn btn-lg btn-success" disabled>Confirmar compra</button>
         </div>
       </div>
 
@@ -112,13 +114,13 @@
             </div>
             <div class="modal-body">
               <input type="radio" name="payForm" onclick="fieldsCard()" value="creditCard"> Tarjeta de crédito</input><br>
-              Número de tarjeta <input type="text" inputmode="numeric" id="cardNumber"><br>
-              Código de seguridad <input type="text" inputmode="numeric" id="secCode"><br>
-              Vencimiento (año/mes) <input type="month" id="expiration" placeholder="AAAA/MM"><br>
+              Número de tarjeta <input disabled type="text" inputmode="numeric" id="cardNumber"><span class="vfeedback"></span><br>
+              Código de seguridad <input disabled type="text" inputmode="numeric" id="secCode"><span class="vfeedback"></span><br>
+              Vencimiento (año/mes) <input disabled type="month" id="expiration" placeholder="AAAA/MM"><span class="vfeedback"></span><br>
               <!--Aprovechando la funcionalidad de mes que tienen algunos navegadores-->
               <hr>
               <input type="radio" name="payForm" onclick="fieldsTransfer()" value="bankTransfer"> Transferencia bancaria</input><br>
-              Número de cuenta <input type="text" inputmode="numeric" id="account"><br>
+              Número de cuenta <input disabled type="text" inputmode="numeric" id="account"><span class="vfeedback"></span><br>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
